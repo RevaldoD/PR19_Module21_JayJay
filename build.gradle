@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Selenium & DevTools 137
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.33.0'
+    testRuntimeOnly  'org.seleniumhq.selenium:selenium-devtools-v137:4.33.0'   // 👈 new
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
+    testImplementation 'io.cucumber:cucumber-java:7.15.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.15.0'
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.0'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+def tags = (findProperty('tags') ?: 'not @exclude') + ' and not @exclude'
+
+/* ---------- Modern, typed JavaExec task ---------- */
+tasks.register('cucumber', JavaExec) {
+
+    // Gradle already knows everything during the configuration phase
+    group       = 'verification'
+    description = 'Runs Cucumber feature files'
+
+    dependsOn(tasks.named('testClasses'))   // replaces “assemble, compileTestJava”
+
+    // ✅ new API – avoid `main =` deprecation
+    mainClass.set('io.cucumber.core.cli.Main')
+
+    // ✅ lazy property assignment for classpath
+    classpath = configurations.cucumberRuntime +
+            sourceSets.main.runtimeClasspath +
+            sourceSets.test.runtimeClasspath
+
+    // Command-line arguments to Cucumber
+    args(
+            '--plugin', 'pretty',
+            '--plugin', 'html:reports/test-report.html',
+            '--glue',   'com.valdo',
+            '--tags',   tags,
+            'src/test/resources'
+    )
+}
+
