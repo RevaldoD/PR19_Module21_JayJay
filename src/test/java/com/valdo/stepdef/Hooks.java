@@ -8,12 +8,12 @@ public class Hooks extends Driver {
 
     @Before
     public void beforeSetup() {
-        getDriver();
+        super.getDriver();
     }
 
     @After
     public void afterSetup() {
-        driver.close();
+        driver.quit();
     }
 
 }
