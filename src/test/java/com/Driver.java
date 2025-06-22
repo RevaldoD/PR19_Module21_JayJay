@@ -11,18 +11,25 @@ public class Driver {
 
     protected static WebDriver driver;
 
-    protected void getDriver(){
+    protected void getDriver() {
         // Disable password-manager popups
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         prefs.put("profile.password_manager_leak_detection", false);
 
-        ChromeOptions opts = new ChromeOptions().setExperimentalOption("prefs", prefs);
+        ChromeOptions options = new ChromeOptions()
+                .setExperimentalOption("prefs", prefs)
+                .addArguments(
+                        "--no-sandbox",
+                        "--disable-dev-shm-usage",
+                        "--headless=new",
+                        "--window-size=1920,1080"
+                );
+
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(opts);
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
-
 
 }
