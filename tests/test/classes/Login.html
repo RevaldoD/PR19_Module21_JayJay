@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">7.054s</div>
+<div class="counter">1.298s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -60,9 +60,6 @@
 </div>
 <div class="tab-container">
 <ul class="tabLinks">
-<li>
-<a href="#">Failed tests</a>
-</li>
 <li>
 <a href="#">Tests</a>
 </li>
@@ -74,42 +71,6 @@
 </li>
 </ul>
 <div class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="Unable to login without username and password"></a>
-<h3 class="failures">Unable to login without username and password</h3>
-<span class="code">
-<pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir 
-Host info: host: 'fv-az1370-349', ip: '10.1.0.33'
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.11.0-1015-azure', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false, profile.password_manager_leak_detection: false}}}]}]
-	at app//org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
-	at app//org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
-	at app//org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61)
-	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:187)
-	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-	at app//org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:244)
-	at app//org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:173)
-	at app//org.openqa.selenium.chromium.ChromiumDriver.&lt;init&gt;(ChromiumDriver.java:110)
-	at app//org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:88)
-	at app//org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:83)
-	at app//org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:72)
-	at app//com.Driver.getDriver(Driver.java:23)
-	at app//com.valdo.stepdef.Hooks.beforeSetup(Hooks.java:11)
-</pre>
-</span>
-<span class="code">
-<pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.quit()&quot; because &quot;com.valdo.stepdef.Hooks.driver&quot; is null
-	at com.valdo.stepdef.Hooks.afterSetup(Hooks.java:16)
-</pre>
-</span>
-</div>
-</div>
-<div class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -120,9 +81,9 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 </tr>
 </thead>
 <tr>
-<td class="failures">Unable to login without username and password</td>
-<td class="failures">7.054s</td>
-<td class="failures">failed</td>
+<td class="success">Unable to login without username and password</td>
+<td class="success">1.298s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
@@ -132,34 +93,9 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 <pre>
 @product @invalid-login
 Scenario: Unable to login without username and password       ?[90m# src/test/resources/login.feature:5?[0m
-      ?[31morg.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir 
-Host info: host: 'fv-az1370-349', ip: '10.1.0.33'
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.11.0-1015-azure', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false, profile.password_manager_leak_detection: false}}}]}]
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:187)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:244)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:173)
-	at org.openqa.selenium.chromium.ChromiumDriver.&lt;init&gt;(ChromiumDriver.java:110)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:88)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:83)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:72)
-	at com.Driver.getDriver(Driver.java:23)
-	at com.valdo.stepdef.Hooks.beforeSetup(Hooks.java:11)
-?[0m
-  ?[36mGiven ?[0m?[36mthe user is on the Login page?[0m                         ?[90m# com.valdo.stepdef.LoginStepDef.userIsOnLoginPage()?[0m
-  ?[36mWhen ?[0m?[36mthe user clicks the Login button without fill the form?[0m ?[90m# com.valdo.stepdef.LoginStepDef.userClicksLogin()?[0m
-  ?[36mThen ?[0m?[36mthe website give error message ?[0m?[36m?[1m&quot;Username is required&quot;?[0m  ?[90m# com.valdo.stepdef.LoginStepDef.userAbleToSeeErrorMessage(java.lang.String)?[0m
-      ?[31mjava.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.quit()&quot; because &quot;com.valdo.stepdef.Hooks.driver&quot; is null
-	at com.valdo.stepdef.Hooks.afterSetup(Hooks.java:16)
-?[0m
+  ?[32mGiven ?[0m?[32mthe user is on the Login page?[0m                         ?[90m# com.valdo.stepdef.LoginStepDef.userIsOnLoginPage()?[0m
+  ?[32mWhen ?[0m?[32mthe user clicks the Login button without fill the form?[0m ?[90m# com.valdo.stepdef.LoginStepDef.userClicksLogin()?[0m
+  ?[32mThen ?[0m?[32mthe website give error message ?[0m?[32m?[1m&quot;Username is required&quot;?[0m  ?[90m# com.valdo.stepdef.LoginStepDef.userAbleToSeeErrorMessage(java.lang.String)?[0m
 </pre>
 </span>
 </div>
@@ -180,7 +116,7 @@ SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.13</a> at Jun 22, 2025, 6:37:23 AM</p>
+<a href="https://www.gradle.org">Gradle 8.13</a> at Jun 22, 2025, 6:41:16 AM</p>
 </div>
 </div>
 </body>
