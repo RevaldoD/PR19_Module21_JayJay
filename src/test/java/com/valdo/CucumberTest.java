@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     glue = {"com.valdo"},
     features = {"src/test/resources"},
-    plugin = {"pretty","html:reports/test-report.html"},
+    plugin = {"pretty","html:target/cucumber-reports.html"},
     tags = "not @exclude"
 )
 
